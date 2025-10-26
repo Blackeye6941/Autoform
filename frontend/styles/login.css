@@ -1,0 +1,76 @@
+/*
+  --- 3. LOGIN OVERLAY STYLES ---
+*/
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.login-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.login-box {
+  background-color: var(--bg-secondary);
+  padding: 0;
+  border-radius: 12px;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  border-top: 4px solid var(--accent-primary);
+}
+.logo-container {
+  background-color: var(--bg-primary);
+  padding: 24px;
+  display: inline-flex;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 24px;
+}
+.login-box .logo-path {
+  stroke: var(--logo-color);
+}
+.login-box h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.login-box p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  padding: 0 24px;
+}
+.google-signin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: all 0.2s ease;
+  margin-bottom: 40px;
+  width: calc(100% - 48px); /* Make button responsive */
+  max-width: 300px; /* Max width */
+}
+.google-signin-btn:hover {
+  background: #f7f7f7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
