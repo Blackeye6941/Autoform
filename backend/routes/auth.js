@@ -26,6 +26,11 @@ router.get("/google", passport.authenticate("google", {
 router.get("/google/callback", passport.authenticate("google", {
 	failureRedirect: "/"
 }),(req, res) => {
+		req.session.user = {
+			name: req.user.profile.displayName,
+			accessToken: req.user.accessToken,
+			refreshToken: req.user.refreshToken
+		};
 		res.send("Google Login Successfull");
 });
 

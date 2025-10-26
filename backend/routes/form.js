@@ -1,11 +1,14 @@
 const express = require("express");
-const google = require("googleapis");
+const createForm = require("../controllers/formController.js");
 
 const router = express.Router();
 
-router.get("/create-form", () => {
-	
-});
+function ensureAuthenticated(req, res, next){
+	if(req.user && req.user.accessToken) return next();
+	return res.status(401).json({ error : "User not authenticated"});
+}
+
+router.post("/create", ensureAuthenticated, createForm);
 
 module.exports = router();
 
