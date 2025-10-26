@@ -1,2 +1,2 @@
 # Autoform
-Google Form Automater for personal use.
+Google Form Automater
