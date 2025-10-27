@@ -13,6 +13,6 @@ exports.createForm = async (req, res) => {
 		const formLink = await googleFormService.createFormWithOAuth(formData, req.user.accessToken);
 		res.json({success: true, formLink});
 	} catch (err) {
-		return res.status(500).json({"Error creating Form"});
+		return res.json("Error");
 	}
 }
