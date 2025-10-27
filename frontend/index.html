@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Auto Form</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles/general.css" rel="stylesheet" />
+    <link href="styles/login.css" rel="stylesheet" />
+    <link href="styles/chat.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="login-overlay" id="login-overlay">
+      <div class="login-box">
+        <div class="logo-container">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="logo-path"
+              d="M12 2L14.5 9H21.5L16 13.5L18.5 20.5L12 16L5.5 20.5L8 13.5L1.5 9H8.5L12 2Z"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <h1>Welcome</h1>
+        <p>Sign in with your Google account</p>
+
+        <form action="/auth/google" method="POST">
+          <button type="submit" class="google-signin-btn">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 18 18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M17.64 9.20455C17.64 8.56364 17.5827 7.95 17.4764 7.36364H9V10.8409H13.8436C13.635 11.9955 13.0009 12.9955 12.045 13.6364V15.8182H14.9564C16.6582 14.25 17.64 11.9318 17.64 9.20455Z"
+                fill="#4285F4"
+              />
+              <path
+                d="M9 18C11.43 18 13.4673 17.1955 14.9564 15.8182L12.045 13.6364C11.235 14.2273 10.215 14.6045 9 14.6045C6.96273 14.6045 5.22091 13.2273 4.5 11.4773H1.5V13.7182C2.96182 16.2818 5.78182 18 9 18Z"
+                fill="#34A853"
+              />
+              <path
+                d="M4.5 11.4773C4.29273 10.8864 4.18182 10.25 4.18182 9.59091C4.18182 8.93182 4.29273 8.29545 4.5 7.70455V5.46364H1.5C0.542727 7.36364 0 9.20455 0 9.59091C0 9.97727 0.542727 11.8182 1.5 13.7182L4.5 11.4773Z"
+                fill="#FBBC05"
+              />
+              <path
+                d="M9 4.58182C10.3209 4.58182 11.5073 5.05 12.4418 5.91818L15.0218 3.33636C13.4673 1.87273 11.43 0.909091 9 0.909091C5.78182 0.909091 2.96182 2.71818 1.5 5.46364L4.5 7.70455C5.22091 5.95455 6.96273 4.58182 9 4.58182Z"
+                fill="#EA4335"
+              />
+            </svg>
+            <span>Sign in with Google</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="app-container">
+      <main class="chat-interface">
+        <header class="chat-header">
+          <div class="header-left">
+            <h1>New Chat</h1>
+          </div>
+          <div class="header-right">
+            <button
+              class="theme-toggle-btn"
+              id="theme-toggle"
+              aria-label="Toggle dark/light mode"
+            >
+              <svg
+                class="sun-icon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M12 1V3M12 21V23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M1 12H3M21 12H23M4.22 19.78L5.64 18.36M18.36 5.64L19.78 4.22"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <svg
+                class="moon-icon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 12.79C21 17.01 17.52 20.49 13.30 20.49C9.08 20.49 5.60 17.01 5.60 12.79C5.60 8.57 9.08 5.09 13.30 5.09C13.92 5.09 14.52 5.17 15.09 5.29C14.79 6.31 14.50 7.4 14.50 8.5C14.50 12.92 18.08 16.5 22.5 16.5C23.6 16.5 24.69 16.21 25.71 15.91C23.81 19.05 21 19.8 21 12.79Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="chat-messages">
+          <div class="message ai">
+            <div class="avatar">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="logo-path"
+                  d="M12 2L14.5 9H21.5L16 13.5L18.5 20.5L12 16L5.5 20.5L8 13.5L1.5 9H8.5L12 2Z"
+                  fill="var(--accent-primary)"
+                />
+              </svg>
+            </div>
+            <div class="text">Welcome to Google Form Automater</div>
+          </div>
+        </div>
+
+        <footer class="chat-input-area">
+          <div class="input-wrapper">
+            <textarea
+              id="prompt-input"
+              placeholder="Enter a prompt to generate the google form..."
+              rows="1"
+            ></textarea>
+            <button class="send-btn" aria-label="Send message">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="scripts/script.js" type="module"></script>
+  </body>
+</html>
