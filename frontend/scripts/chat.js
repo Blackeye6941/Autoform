@@ -28,7 +28,7 @@ function handleKeydown(e, textarea, chatMessages) {
   }
 }
 
-function handleSendMessage(textarea, chatMessages) {
+async function handleSendMessage(textarea, chatMessages) {
   const text = textarea.value.trim();
   if (text === "") return;
 
@@ -36,7 +36,35 @@ function handleSendMessage(textarea, chatMessages) {
   textarea.value = "";
   textarea.style.removeProperty("height");
 
-  //send text to the backend
+  try {
+    const response = await fetch("/form/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt: text }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Server responded with status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.success && data.formLink) {
+      const aiReply = `Here is the form I created for you: ${data.formLink}`;
+      appendMessage("ai", aiReply, chatMessages);
+    } else {
+      appendMessage("ai", "Sorry, I couldn't create the form.", chatMessages);
+    }
+  } catch (error) {
+    console.error("Error sending message to backend:", error);
+    appendMessage(
+      "ai",
+      "Sorry, I couldn't connect to the server. Please try again.",
+      chatMessages
+    );
+  }
 }
 
 function appendMessage(sender, text, chatMessages) {
@@ -57,6 +85,6 @@ function appendMessage(sender, text, chatMessages) {
 }
 
 function resizeTextarea(textarea) {
-  textarea.style.height = "auto"; // Reset height
+  textarea.style.height = "auto";
   textarea.style.height = textarea.scrollHeight + "px";
 }
