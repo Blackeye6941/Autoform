@@ -11,6 +11,7 @@
   align-items: center;
   z-index: 1000;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 16px;
 }
 .login-overlay.hidden {
   opacity: 0;

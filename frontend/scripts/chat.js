@@ -19,8 +19,6 @@ export function initChat(textarea, sendButton, chatMessages) {
   sendButton.addEventListener("click", () =>
     handleSendMessage(textarea, chatMessages)
   );
-
-  resizeTextarea(textarea);
 }
 
 function handleKeydown(e, textarea, chatMessages) {
@@ -36,7 +34,7 @@ function handleSendMessage(textarea, chatMessages) {
 
   appendMessage("user", text, chatMessages);
   textarea.value = "";
-  resizeTextarea(textarea);
+  textarea.style.removeProperty("height");
 
   //send text to the backend
 }
