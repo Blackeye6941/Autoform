@@ -5,6 +5,7 @@ const passport = require("passport");
 require("dotenv").config();
 
 const authRoutes = require("./routes/auth.js");
+const formRoutes = require("./routes/form.js"); 
 
 const app = express();
 const PORT = 5000;
@@ -21,6 +22,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/auth", authRoutes);
+app.use("/form", formRoutes);
 
 app.get("/", (req,res) => {
 	res.send("<h1>Autoform Backend</h1>");
